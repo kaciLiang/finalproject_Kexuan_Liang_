@@ -1,0 +1,19 @@
+# 绝对不能上传的
+.env
+kaggle.json
+src/.env
+src/kaggle.json
+
+# 数据和结果不能上传
+data/
+results/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
+__pycache__/

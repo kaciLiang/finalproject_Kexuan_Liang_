@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+matplotlib
+seaborn
+kaggle
+kagglehub
+python-dotenv
