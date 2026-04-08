@@ -53,7 +53,7 @@ def process_viral_trends(df: pd.DataFrame) -> pd.DataFrame:
 
     if "engagement_rate" not in df.columns and "views" in df.columns:
         df["engagement_rate"] = (
-            (df["likes"] + df["comments"] + df.get("shares", 0))
+            (df["likes"] + df["comments"] + (df["shares"] if "shares" in df.columns else 0))
             / df["views"].replace(0, np.nan)
         )
 
