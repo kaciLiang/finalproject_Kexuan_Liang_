@@ -87,7 +87,6 @@ def get_youtube_data(queries=None, max_results=50):
     df["engagement"] = df["like_count"] + df["comment_count"]
     df["engagement_rate"] = df["engagement"] / df["view_count"].replace(0, 1)
 
-    import pandas as pd2
     df["published_at"] = pd.to_datetime(df["published_at"], errors="coerce")
     df["post_hour"] = df["published_at"].dt.hour
     df["day_of_week"] = df["published_at"].dt.day_name()
