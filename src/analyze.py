@@ -17,7 +17,7 @@ def ensure_results_dir():
     os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
-# ── Correlation ────────────────────────────────────────────────
+# Correlation
 
 def compute_correlations(df: pd.DataFrame, target: str = "engagement_rate") -> pd.Series:
     """
@@ -32,7 +32,7 @@ def compute_correlations(df: pd.DataFrame, target: str = "engagement_rate") -> p
     return correlations
 
 
-# ── Plots ──────────────────────────────────────────────────────
+# Plots
 
 def plot_correlation_bar(correlations: pd.Series, dataset_name: str) -> None:
     """Bar chart of correlations."""
