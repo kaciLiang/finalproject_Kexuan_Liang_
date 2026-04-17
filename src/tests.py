@@ -1,8 +1,4 @@
-"""
-tests.py
---------
-Run with: python tests.py
-"""
+
 import os, sys
 import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -14,7 +10,7 @@ def _pass(msg): print(f"  PASS: {msg}")
 def _fail(msg): print(f"  FAIL: {msg}")
 
 def test_youtube_api():
-    print("\n[TEST 1] YouTube Data API v3")
+    print("YouTube Data API v3")
     df = get_youtube_data(queries=["social media engagement"], max_results=10)
     if df is None or len(df) == 0:
         _fail("YouTube API returned no data")
@@ -29,7 +25,7 @@ def test_youtube_api():
     return True
 
 def test_instagram_data():
-    print("\n[TEST 2] Instagram Analytics CSV")
+    print(" Instagram Analytics CSV")
     df = load_local_csv("Instagram_Analytics.csv")
     if df is None or len(df) == 0:
         _fail("Could not load Instagram_Analytics.csv")
@@ -38,7 +34,7 @@ def test_instagram_data():
     return True
 
 def test_viral_trends_data():
-    print("\n[TEST 3] Viral Social Media Trends CSV")
+    print(" Viral Social Media Trends CSV")
     df = load_local_csv("Cleaned_Viral_Social_Media_Trends.csv")
     if df is None or len(df) == 0:
         _fail("Could not load CSV")
@@ -47,7 +43,7 @@ def test_viral_trends_data():
     return True
 
 def test_processing():
-    print("\n[TEST 4] Data Processing")
+    print("Data Processing")
     df = load_local_csv("Cleaned_Viral_Social_Media_Trends.csv")
     if df is None:
         _fail("No data to process")
@@ -66,9 +62,9 @@ if __name__ == "__main__":
         "Viral Trends CSV": test_viral_trends_data(),
         "Data Processing":  test_processing(),
     }
-    print("\n" + "=" * 50)
-    print("TEST SUMMARY")
-    print("=" * 50)
+   
+    print("Summary")
+
     for name, passed in results.items():
         print(f"  {'PASS' if passed else 'FAIL'}  {name}")
     all_passed = all(results.values())
