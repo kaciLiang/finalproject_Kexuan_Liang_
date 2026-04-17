@@ -1,8 +1,3 @@
-"""
-analyze.py
-----------
-Correlation analysis and visualisations for the engagement study.
-"""
 
 import os
 import pandas as pd
