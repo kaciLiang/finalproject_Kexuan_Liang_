@@ -1,9 +1,3 @@
-"""
-process.py
-----------
-Data cleaning and feature engineering for all three datasets.
-"""
-
 import pandas as pd
 import numpy as np
 
