@@ -20,9 +20,6 @@ def ensure_results_dir():
 # Correlation
 
 def compute_correlations(df: pd.DataFrame, target: str = "engagement_rate") -> pd.Series:
-    """
-    Returns Pearson correlations of all numeric columns with `target`.
-    """
     numeric_df = df.select_dtypes(include="number")
     if target not in numeric_df.columns:
         print(f"  Warning: '{target}' not found for correlation.")
@@ -35,7 +32,7 @@ def compute_correlations(df: pd.DataFrame, target: str = "engagement_rate") -> p
 # Plots
 
 def plot_correlation_bar(correlations: pd.Series, dataset_name: str) -> None:
-    """Bar chart of correlations."""
+    # Bar chart
     ensure_results_dir()
     if correlations.empty:
         return
@@ -57,7 +54,7 @@ def plot_correlation_bar(correlations: pd.Series, dataset_name: str) -> None:
 
 def plot_engagement_by_hour(df: pd.DataFrame, dataset_name: str,
                             engagement_col: str = "engagement_rate") -> None:
-    """Line chart of average engagement by posting hour."""
+     # plot by hour
     ensure_results_dir()
     if "post_hour" not in df.columns or engagement_col not in df.columns:
         print(f"  Skipping hour plot for {dataset_name} (missing columns).")
@@ -82,7 +79,7 @@ def plot_engagement_by_hour(df: pd.DataFrame, dataset_name: str,
 def plot_engagement_by_platform(df: pd.DataFrame, dataset_name: str,
                                 platform_col: str = "platform",
                                 engagement_col: str = "engagement_rate") -> None:
-    """Box plot of engagement broken down by platform."""
+    #Box plot of engagement
     ensure_results_dir()
     if platform_col not in df.columns or engagement_col not in df.columns:
         print(f"  Skipping platform plot for {dataset_name} (missing columns).")
@@ -104,10 +101,7 @@ def plot_engagement_by_platform(df: pd.DataFrame, dataset_name: str,
 
 def run_full_analysis(df: pd.DataFrame, dataset_name: str,
                       engagement_col: str = "engagement_rate") -> None:
-    """Run all analyses for a given dataset."""
-    print(f"\n{'='*50}")
     print(f"Analysing: {dataset_name}")
-    print(f"{'='*50}")
     correlations = compute_correlations(df, target=engagement_col)
     plot_correlation_bar(correlations, dataset_name)
     plot_engagement_by_hour(df, dataset_name, engagement_col)
