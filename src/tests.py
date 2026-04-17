@@ -63,7 +63,7 @@ if __name__ == "__main__":
         "Data Processing":  test_processing(),
     }
    
-    print("Summary")
+    print("summary")
 
     for name, passed in results.items():
         print(f"  {'PASS' if passed else 'FAIL'}  {name}")
