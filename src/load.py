@@ -1,6 +1,4 @@
-"""
-load.py - Data loading from Kaggle CSVs and YouTube API
-"""
+
 import os
 import requests
 import pandas as pd
@@ -18,11 +16,7 @@ def load_local_csv(filename):
     return df
 
 def get_youtube_data(queries=None, max_results=50):
-    """
-    Fetches YouTube videos via YouTube Data API v3.
-    Collects: title, view_count, like_count, comment_count,
-              published_at, duration, tags
-    """
+    # fetch youtube data
     if not YOUTUBE_API_KEY:
         print("Error: YOUTUBE_API_KEY not set.")
         return None
@@ -30,7 +24,7 @@ def get_youtube_data(queries=None, max_results=50):
     if queries is None:
         queries = ["social media marketing", "instagram tips", "tiktok viral", "content creator"]
 
-    print("--- Fetching videos from YouTube API ---")
+    print("Getting YouTube data")
     all_rows = []
 
     for query in queries:
